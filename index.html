@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autenticação Discord</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #2C2F33;
+            color: white;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #7289DA;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #5b6eae;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .image-container img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #7289DA;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-container">
+            <!-- Coloque a URL da sua imagem aqui -->
+            <img src="https://images-ext-1.discordapp.net/external/Mbh1rFYQWh4BvjRczpPoqXpa7L3gRt3XbT1XteVKRBo/%3Fsize%3D2048/https/cdn.discordapp.com/icons/1263950503973224478/58152dadbebf6486eaef192c8943d870.png?format=webp&quality=lossless&width=432&height=432" alt="Discord Logo">
+        </div>
+        <h1>Autentique-se com o Discord</h1>
+        <p>Clique no botão abaixo para autenticar com sua conta do Discord.</p>
+        <a href="https://discord.com/oauth2/authorize?client_id=SEU_CLIENT_ID&redirect_uri=SEU_REDIRECT_URI&response_type=code&scope=identify" class="button">Entrar com Discord</a>
+    </div>
+</body>
+</html>
