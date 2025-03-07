@@ -1,0 +1,462 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação de Acesso</title>
+  <style type="text/css">@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}</style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+        sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Page container */
+    .page-container {
+      min-height: 100vh;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background grid pattern */
+    .bg-grid-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(30, 64, 175, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(30, 64, 175, 0.1) 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.1;
+      z-index: 0;
+    }
+
+    /* Banner */
+    .banner-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 16rem;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .banner-gradient {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent, #000);
+      z-index: 1;
+    }
+
+    .banner-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+    }
+
+    /* Content container */
+    .content-container {
+      max-width: 28rem;
+      width: 100%;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      z-index: 10;
+      position: relative;
+    }
+
+    .content-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* Server icon */
+    .server-icon-container {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+
+    .server-icon-wrapper {
+      width: 6rem;
+      height: 6rem;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 0.25rem;
+      background-color: #000;
+    }
+
+    .server-icon-wrapper.verifying {
+      border: 4px solid #3b82f6; /* blue-500 */
+    }
+
+    .server-icon-wrapper.verified {
+      border: 4px solid #10b981; /* green-500 */
+    }
+
+    .server-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .check-icon {
+      position: absolute;
+      bottom: -0.5rem;
+      right: -0.5rem;
+      background-color: #10b981; /* green-500 */
+      border-radius: 50%;
+      padding: 0.25rem;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Server name */
+    .server-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Verification card */
+    .verification-card {
+      width: 100%;
+      background-color: #111827; /* gray-900 */
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      border: 1px solid #1f2937; /* gray-800 */
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .verifying-state, .verified-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Verification ring */
+    .verification-ring {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .verification-ring::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      border: 2px solid rgba(59, 130, 246, 0.3); /* blue-500 with opacity */
+      animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .loader-icon {
+      color: #3b82f6; /* blue-500 */
+      animation: spin 1s linear infinite;
+    }
+
+    .verification-success {
+      position: relative;
+      margin-bottom: 1rem;
+    }
+
+    .verification-success::before {
+      content: '';
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      right: -10px;
+      bottom: -10px;
+      border-radius: 50%;
+      border: 2px solid rgba(16, 185, 129, 0.3); /* green-500 with opacity */
+    }
+
+    .check-success-icon {
+      color: #10b981; /* green-500 */
+    }
+
+    /* Verification text */
+    .verification-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .verification-text {
+      color: #9ca3af; /* gray-400 */
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Loading dots */
+    .loading-dots {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .dot {
+      height: 0.5rem;
+      width: 0.5rem;
+      background-color: #3b82f6; /* blue-500 */
+      border-radius: 50%;
+      animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    .delay-150 {
+      animation-delay: 150ms;
+    }
+
+    .delay-300 {
+      animation-delay: 300ms;
+    }
+
+    /* Return button */
+    .return-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background-color: #4f46e5; /* indigo-600 */
+      color: white;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      transition: all 0.2s;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    .return-button:hover {
+      background-color: #4338ca; /* indigo-700 */
+    }
+
+    /* Tech details */
+    .tech-details {
+      margin-top: 2rem;
+      font-size: 0.75rem;
+      color: #6b7280; /* gray-500 */
+    }
+
+    .tech-details-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .tech-dot {
+      height: 0.25rem;
+      width: 0.25rem;
+      background-color: #3b82f6; /* blue-500 */
+      border-radius: 50%;
+    }
+
+    /* Footer */
+    .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 1rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #6b7280; /* gray-500 */
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      z-index: 10;
+    }
+
+    .footer a {
+      color: #3b82f6; /* blue-500 */
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer a:hover {
+      color: #60a5fa; /* blue-400 */
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+      }
+      50% {
+        opacity: 0.5;
+        transform: scale(1.1);
+      }
+    }
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .content-container {
+        padding: 1rem;
+      }
+      
+      .verification-card {
+        padding: 1.25rem;
+      }
+      
+      .server-icon-wrapper {
+        width: 5rem;
+        height: 5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+    <div class="bg-grid-pattern"></div>
+    
+    <div class="banner-container">
+      <div class="banner-gradient"></div>
+      <img 
+        src="https://images-ext-1.discordapp.net/external/4v38vI3WMBWOknOf9Qe-Akhd_5XWJ2fMJ5TKVH1ygQI/%3Fformat%3Dwebp%26quality%3Dlossless/https/images-ext-1.discordapp.net/external/ndk3Sg5XUwKloxLNC9m4Yaxmzns8yz-5q1Pt0EyN_Eg/%253Fsize%253D2048/https/cdn.discordapp.com/icons/1334756579865661471/f8be31040bf4af9052f454b76cd7c3f6.png?format=webp&quality=lossless" 
+        alt="Server Banner" 
+        class="banner-image"
+      />
+    </div>
+    
+    <div class="content-container">
+      <div class="content-inner">
+        <div class="server-icon-container">
+          <div class="server-icon-wrapper verifying">
+            <img 
+              src="https://images-ext-1.discordapp.net/external/4v38vI3WMBWOknOf9Qe-Akhd_5XWJ2fMJ5TKVH1ygQI/%3Fformat%3Dwebp%26quality%3Dlossless/https/images-ext-1.discordapp.net/external/ndk3Sg5XUwKloxLNC9m4Yaxmzns8yz-5q1Pt0EyN_Eg/%253Fsize%253D2048/https/cdn.discordapp.com/icons/1334756579865661471/f8be31040bf4af9052f454b76cd7c3f6.png?format=webp&quality=lossless" 
+              alt="Server Icon" 
+              class="server-icon"
+            />
+          </div>
+          <div class="check-icon hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+          </div>
+        </div>
+        
+        <h1 class="server-name">DzBux | Imperiu</h1>
+        
+        <div class="verification-card">
+          <div class="verifying-state">
+            <div class="verification-ring">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="loader-icon">
+                <line x1="12" y1="2" x2="12" y2="6"></line>
+                <line x1="12" y1="18" x2="12" y2="22"></line>
+                <line x1="4.93" y1="4.93" x2="7.76" y2="7.76"></line>
+                <line x1="16.24" y1="16.24" x2="19.07" y2="19.07"></line>
+                <line x1="2" y1="12" x2="6" y2="12"></line>
+                <line x1="18" y1="12" x2="22" y2="12"></line>
+                <line x1="4.93" y1="19.07" x2="7.76" y2="16.24"></line>
+                <line x1="16.24" y1="7.76" x2="19.07" y2="4.93"></line>
+              </svg>
+            </div>
+            <h2 class="verification-title">Verificando...</h2>
+            <p class="verification-text">
+              Estamos autenticando seu acesso ao servidor
+            </p>
+            <div class="loading-dots">
+              <div class="dot"></div>
+              <div class="dot delay-150"></div>
+              <div class="dot delay-300"></div>
+            </div>
+          </div>
+          
+          <div class="verified-state hidden">
+            <div class="verification-success">
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-success-icon">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h2 class="verification-title">Verificado com Sucesso</h2>
+            <p class="verification-text">
+              Seu acesso ao servidor foi confirmado
+            </p>
+            <a 
+              href="#"
+              class="return-button"
+              id="return-button"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+              </svg>
+              Voltar para o Servidor
+            </a>
+          </div>
+        </div>
+        
+        <!-- Tech details -->
+        <div class="tech-details">
+          <div class="tech-details-inner">
+            <div class="tech-dot"></div>
+            <span>Sistema de Autenticação Segura</span>
+            <div class="tech-dot"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="footer">
+      <p>Developed by <a href="https://discord.gg/th2vw2335f" target="_blank">Vamp_knight</a></p>
+    </div>
+  </div>
+
+  <script type="2e8e5b56af04ce75087606b9-text/javascript">
+    const guildId = new URL(window.location).searchParams.get('state')?.split(" ").pop();
+    
+    if (guildId) {
+      document.getElementById('return-button').href = `https://discord.com/channels/${guildId}`;
+    }
+    
+    setTimeout(() => {
+      document.querySelector('.verifying-state').classList.add('hidden');
+      document.querySelector('.verified-state').classList.remove('hidden');
+      document.querySelector('.server-icon-wrapper').classList.remove('verifying');
+      document.querySelector('.server-icon-wrapper').classList.add('verified');
+      document.querySelector('.check-icon').classList.remove('hidden');
+    }, 3000);
+  </script>
+<script src="/cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="2e8e5b56af04ce75087606b9-|49" defer></script></body>
+</html>
